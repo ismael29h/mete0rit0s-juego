@@ -17,7 +17,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	# aplicar torque de rotación
 	apply_torque_impulse(dir_rotacion * potencia_rotacion)
 	
-	# debbug
+	# interesante - buscar
 	#print(rad2deg(rotation))
 	#print(empuje.rotated(rotation))
 
@@ -40,4 +40,8 @@ func player_input() -> void:
 	elif Input.is_action_pressed("mover_horario"):
 		dir_rotacion += 1
 
-
+	# disparar
+	if Input.is_action_pressed("disparo_principal"):
+		canion.set_esta_disparando(true)
+	if Input.is_action_just_released("disparo_principal"):
+		canion.set_esta_disparando(false)

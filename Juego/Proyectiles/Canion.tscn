@@ -13,3 +13,5 @@ script = ExtResource( 1 )
 bus = "SFX"
 
 [node name="TimerDisparo" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerDisparo" to="." method="_on_TimerDisparo_timeout"]
