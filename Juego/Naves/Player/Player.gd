@@ -8,6 +8,8 @@ export var potencia_rotacion:int = 280
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
 
+onready var canion:Canion = $Canion
+
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 		# aplicar impulso: adelante-atrás
