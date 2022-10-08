@@ -48,7 +48,8 @@ func disparar() -> void:
 			velocidad_proyectil,
 			danio_proyectil
 		)
-	print('Piu piu')
+		Eventos.emit_signal("disparo", new_proyectil)
+
 
 func _on_TimerDisparo_timeout() -> void:
 	esta_enfriado = true
