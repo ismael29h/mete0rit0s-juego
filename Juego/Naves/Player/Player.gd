@@ -1,6 +1,6 @@
-class_name Player
-
 extends RigidBody2D
+
+class_name Player
 
 export var potencia_motor:int = 20
 export var potencia_rotacion:int = 280

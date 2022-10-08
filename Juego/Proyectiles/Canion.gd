@@ -1,6 +1,6 @@
-class_name Canion
-
 extends Node2D
+
+class_name Canion
 
 export var proyectil:PackedScene = null
 export var cadencia_disparo:float = 0.8
