@@ -18,7 +18,9 @@ var puntos_disparo:Array = []
 func _ready() -> void:
 	almacenar_puntos_disparo()
 	timer_enfriamiento.wait_time = cadencia_disparo
-
+	# solución improvisada, si el audio siempre se reproducía en bucle...
+	# ... ajustar en el panel de importación (al lado de escena)
+	#(disparo_sfx.stream as AudioStreamOGGVorbis).set_loop(false)
 
 func _process(delta: float) -> void:
 	if esta_disparando and esta_enfriado:
@@ -38,8 +40,8 @@ func almacenar_puntos_disparo() -> void:
 
 func disparar() -> void:
 	esta_enfriado = false
-	disparo_sfx.play()
 	timer_enfriamiento.start()
+	disparo_sfx.play()
 	for punto_disparo in puntos_disparo:
 		var new_proyectil:Proyectil = proyectil.instance()
 		new_proyectil.crear(
