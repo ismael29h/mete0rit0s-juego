@@ -46,3 +46,11 @@ func player_input() -> void:
 		canion.set_esta_disparando(true)
 	if Input.is_action_just_released("disparo_principal"):
 		canion.set_esta_disparando(false)
+
+	# disparo secundario
+	if Input.is_action_just_pressed("disparo_secundario"):
+		if laser.is_casting:
+			laser.set_is_casting(false)
+		else:
+			laser.set_is_casting(true)
+		

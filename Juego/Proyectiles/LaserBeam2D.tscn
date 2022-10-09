@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Juego/Proyectiles/LaserBeam2D.gd" type="Script" id=1]
 [ext_resource path="res://Juego/Proyectiles/glowing_circle.png" type="Texture" id=2]
+[ext_resource path="res://Juego/Sonidos/Audio/PlayerLaserSecundario.ogg" type="AudioStream" id=3]
 
 [node name="LaserBeam2D" type="RayCast2D"]
 enabled = true
@@ -22,25 +23,43 @@ antialiased = true
 [node name="CastingParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 show_behind_parent = true
+emitting = false
 lifetime = 0.3
 local_coords = false
 texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 1.0
 
 [node name="BeamParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
+emitting = false
 amount = 50
 preprocess = 1.0
 randomness = 1.0
 local_coords = false
 draw_order = 1
 texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 1.0
 
 [node name="CollisionParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 show_behind_parent = true
+emitting = false
 amount = 16
 lifetime = 0.3
 local_coords = false
 texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 1.0
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="LaserSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+bus = "DisparoSFX"

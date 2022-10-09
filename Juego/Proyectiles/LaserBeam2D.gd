@@ -1,5 +1,10 @@
 # Nota: cambié el tipo "Particles2D" a "CPUParticles2D"
 # Mi tarjeta gráfica soporta opengl3, pero existen problemas con godot y amd
+# "emmiting" puesto en "false" dentro de:
+#		 "CastingParticles2D", "BeamParticles2D" y "CollisionParticles2D"
+#  línea 82: otra modificación
+# otros ajustes menores en el inspector
+
 
 class_name RayoLaser
 
@@ -25,6 +30,8 @@ onready var tween := $Tween
 onready var casting_particles := $CastingParticles2D
 onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
+onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX
+
 
 onready var line_width: float = fill.width
 
@@ -32,7 +39,7 @@ onready var line_width: float = fill.width
 func _ready() -> void:
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
-
+	
 
 func _physics_process(delta: float) -> void:
 	cast_to = (cast_to + Vector2.RIGHT * cast_speed * delta).clamped(max_length)
@@ -45,9 +52,11 @@ func set_is_casting(cast: bool) -> void:
 	if is_casting:
 		cast_to = Vector2.ZERO
 		fill.points[1] = cast_to
+		laser_sfx.play() # (...)
 		appear()
 	else:
 		collision_particles.emitting = false
+		laser_sfx.stop() # (...)
 		disappear()
 
 	set_physics_process(is_casting)
@@ -70,8 +79,11 @@ func cast_beam() -> void:
 
 	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5
-	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
-
+	# original:
+	# beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
+	
+	# adaptado a "CPUParticles2D", (emission_shape establecido en "Box" también)
+	beam_particles.emission_rect_extents.x = cast_point.length() * 0.5
 
 func appear() -> void:
 	if tween.is_active():
@@ -80,7 +92,7 @@ func appear() -> void:
 	tween.start()
 
 
-func disappear() -> void:
+func disappear() -> void:	
 	if tween.is_active():
 		tween.stop_all()
 	tween.interpolate_property(fill, "width", fill.width, 0, growth_time)
