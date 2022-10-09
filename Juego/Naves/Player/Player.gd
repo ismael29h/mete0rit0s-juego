@@ -9,6 +9,7 @@ var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
 
 onready var canion:Canion = $Canion
+onready var laser:RayoLaser = $LaserBeam2D
 
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
