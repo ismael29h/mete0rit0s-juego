@@ -13,6 +13,7 @@ var dir_rotacion:int = 0
 onready var canion:Canion = $Canion
 onready var laser:RayoLaser = $LaserBeam2D
 onready var estela:Estela = $PuntoEstela/Trail2D
+onready var motor_sfx:Motor = $MotorSFX
 
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
@@ -32,14 +33,21 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 
 #func player_input() -> void:
 func _unhandled_input(event: InputEvent) -> void:
-	# empuje
+	# empuje, sonido del motor, estela
 	empuje = Vector2.ZERO
 	if Input.is_action_pressed("mover_adelante"):
 		empuje = Vector2(potencia_motor, 0)
 		estela.set_max_points(estela_maxima)
+		motor_sfx.encender_motor()
 	elif Input.is_action_pressed("mover_atrás"):
 		empuje = Vector2(-potencia_motor, 0)
 		estela.set_max_points(0)
+		motor_sfx.encender_motor()
+
+	if event.is_action_released("mover_adelante")\
+	 or event.is_action_released("mover_atrás"):
+		motor_sfx.apagar_motor()
+
 
 	# rotación
 	dir_rotacion = 0
