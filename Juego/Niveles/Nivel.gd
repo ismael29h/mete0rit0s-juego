@@ -26,7 +26,10 @@ func _on_disparo(proyectil:Proyectil) -> void:
 	contenedor_proyectiles.add_child(proyectil)
 
 
-func _on_nave_destruida(posicion:Vector2) -> void:
-	var nueva_explosion:Node2D = explosion.instance()
-	nueva_explosion.global_position = posicion
-	add_child(nueva_explosion)
+func _on_nave_destruida(posicion:Vector2, explosiones:int) -> void:
+	for i in range(explosiones):	
+		var nueva_explosion:Node2D = explosion.instance()
+		nueva_explosion.global_position = posicion
+		# decido usar el contenedor_proyectiles para las explosiones
+		contenedor_proyectiles.add_child(nueva_explosion)
+		yield(get_tree().create_timer(0.17), "timeout")
