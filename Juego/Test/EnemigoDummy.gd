@@ -3,6 +3,10 @@ extends Node2D
 export var vida:float = 10.0
 
 
+func _process(delta:float) -> void:
+	$Canion.set_esta_disparando(true)
+
+
 func _on_Area2D_body_entered(body):
 	if body is Player:
 		body.destruir()

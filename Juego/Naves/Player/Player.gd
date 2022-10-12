@@ -5,7 +5,7 @@ class_name Player
 export var potencia_motor:int = 20
 export var potencia_rotacion:int = 280
 export var estela_maxima:int = 100
-
+export var vida:float = 15.0
 
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
@@ -16,6 +16,7 @@ onready var laser:RayoLaser = $LaserBeam2D
 onready var estela:Estela = $PuntoEstela/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionPlayer
+onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
 
 # enumerable
 enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
@@ -118,3 +119,10 @@ func _on_AnimationPlayer_animation_finished(anim_name:String) -> void:
 
 func destruir() -> void:
 	controlar_estados(ESTADO.MUERTO)
+
+
+func recibir_danio(danio:float) -> void:
+	vida -= danio
+	if vida <= 0:
+		destruir()
+	impacto_sfx.play()
