@@ -17,6 +17,7 @@ onready var estela:Estela = $PuntoEstela/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionPlayer
 onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
+onready var escudo:Escudo = $Escudo
 
 # enumerable
 enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
@@ -109,7 +110,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			# el disparo secundario anula el disparo principal
 			canion.set_esta_disparando(false)
 			laser.set_is_casting(true)
-		
+	
+	# escudo
+	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
+		escudo.activar()
 
 # AnimationPlayer
 func _on_AnimationPlayer_animation_finished(anim_name:String) -> void:
