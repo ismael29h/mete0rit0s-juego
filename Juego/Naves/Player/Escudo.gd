@@ -15,7 +15,6 @@ func _ready() -> void:
 
 func _process(delta) -> void:
 	energia -= desgaste * delta
-	print(energia)
 	if energia <= 0.0:
 		desactivar()
 
@@ -33,11 +32,10 @@ func activar() -> void:
 
 
 func desactivar() -> void:
-	set_process(false)
 	esta_activado = false
 	controlar_colisionador(true)
 	$AnimationPlayer.play_backwards("activando")
-
+	set_process(false)
 
 func get_esta_activado() -> bool:
 	return esta_activado
@@ -47,3 +45,8 @@ func _on_AnimationPlayer_animation_finished(anim_name:String) -> void:
 	if anim_name == "activando" and esta_activado:
 		$AnimationPlayer.play("activado")
 		set_process(true)
+
+
+func _on_area_entered(area):
+	$ImpactoEnemigo.play()
+	area.queue_free()
