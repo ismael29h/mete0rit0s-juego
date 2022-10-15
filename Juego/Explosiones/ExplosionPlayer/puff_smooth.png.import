@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/glowing_circle.png-a186cee850992d248df03958d4b358f1.stex"
+path="res://.import/puff_smooth.png-8d683b8cb46d4df3ee8e578ff613ed6d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juego/Proyectiles/glowing_circle.png"
-dest_files=[ "res://.import/glowing_circle.png-a186cee850992d248df03958d4b358f1.stex" ]
+source_file="res://Juego/Explosiones/ExplosionPlayer/puff_smooth.png"
+dest_files=[ "res://.import/puff_smooth.png-8d683b8cb46d4df3ee8e578ff613ed6d.stex" ]
 
 [params]
 
