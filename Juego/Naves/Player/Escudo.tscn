@@ -141,12 +141,14 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="Completo" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.854902, 0.866667, 0.12549, 1 )
 rotation = 1.5708
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 3 )
 
 [node name="Abriendo1" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.740188, 0.749023, 0.192376, 1 )
 rotation = 1.5708
 scale = Vector2( 0.44, 0.44 )
