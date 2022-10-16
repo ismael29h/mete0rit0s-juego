@@ -4,6 +4,7 @@ class_name Nivel
 
 export var explosion:PackedScene = null
 export var meteorito:PackedScene = null
+export var explosion_meteorito:PackedScene = null
 
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
@@ -19,6 +20,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("disparo", self, "_on_disparo")
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	Eventos.connect("lluvia_meteoritos", self, "_on_spawn_meteoritos")
+	Eventos.connect("destruccion_meteorito", self, "_on_meteorito_destruido")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -53,3 +55,9 @@ func _on_spawn_meteoritos(pos_spawn:Vector2, dir_meteorito:Vector2, volumen:floa
 		volumen
 	)
 	contenedor_meteoritos.add_child(nuevo_meteorito)
+
+
+func _on_meteorito_destruido(pos:Vector2) -> void:
+	var nueva_explosion:ExplosionMeteorito = explosion_meteorito.instance()
+	nueva_explosion.global_position = pos
+	contenedor_explosiones.add_child(nueva_explosion)

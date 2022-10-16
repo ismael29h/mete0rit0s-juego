@@ -27,8 +27,8 @@ func crear(pos:Vector2, dir:Vector2, volumen:float) -> void:
 	forma_colision.radius = radio
 	$CollisionShape2D.shape = forma_colision
 	# velocidades
-	linear_velocity = vel_lineal_base * dir / volumen
-	angular_velocity = vel_ang_base / volumen
+	linear_velocity = (vel_lineal_base * dir / volumen) * aleatorizar()
+	angular_velocity = (vel_ang_base / volumen) * aleatorizar()
 	# Hitpoints
 	vida = vida_base * volumen
 
@@ -42,5 +42,20 @@ func recibir_danio(danio:float) -> void:
 
 func destruir() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
+	Eventos.emit_signal("destruccion_meteorito", global_position)
 	queue_free()
 
+
+func aleatorizar() -> float:
+	randomize()
+	return rand_range(1.1, 1.4)
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+
+
+func _on_body_entered(body:Node) -> void:
+	if body is Player:
+		body.destruir()
+		destruir()
