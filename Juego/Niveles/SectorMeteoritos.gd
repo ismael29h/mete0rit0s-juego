@@ -7,7 +7,7 @@ var spawners:Array
 
 func _ready() -> void:
 	almacen_spawners()
-
+	$AdvertenciaAnimation.play("Advertencia")
 
 func almacen_spawners() -> void:
 	for spawner in $Spawners.get_children():
@@ -23,6 +23,7 @@ func spawner_random() -> int:
 func _on_Timer_timeout() -> void:
 	if cantidad_meteoritos == 0:
 		$Timer.stop()
+		$AdvertenciaAnimation.play("default")
 		return
 	
 	(spawners[spawner_random()]).spawnear_meteorito()

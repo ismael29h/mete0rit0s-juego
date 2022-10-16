@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Advertencia.ogg-b39eddc6dd39326a33b0f497de797fae.oggstr"
+
+[deps]
+
+source_file="res://Juego/Sonidos/Audio/Advertencia.ogg"
+dest_files=[ "res://.import/Advertencia.ogg-b39eddc6dd39326a33b0f497de797fae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
