@@ -6,7 +6,7 @@
 [ext_resource path="res://Juego/Explosiones/ExplosionPlayer/Explosion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Juego/Test/EnemigoDummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Juego/Objetos/Meteoritos/Meteorito.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Juego/Objetos/Meteoritos/MeteoritoSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Juego/Niveles/SectorMeteoritos.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 
 [node name="NivelTest" type="Node2D"]
@@ -24,27 +24,5 @@ position = Vector2( 392, 329 )
 [node name="EnemigoDummy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 950, 585 )
 
-[node name="Meteorito" parent="." instance=ExtResource( 6 )]
-position = Vector2( 773, 396 )
-
-[node name="MeteoritoSpawner" parent="." instance=ExtResource( 7 )]
-position = Vector2( 119, 88 )
-
-[node name="MeteoritoSpawner2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1711, 67 )
-direccion = Vector2( -2, 1 )
-
-[node name="MeteoritoSpawner3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1693, 926 )
-direccion = Vector2( -2, -1 )
-
-[node name="MeteoritoSpawner4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 189, 922 )
-direccion = Vector2( 2, -1 )
-
-[node name="MeteoritoSpawner5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 948, 926 )
-direccion = Vector2( -2, -1 )
-
-[node name="MeteoritoSpawner6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 720, 67 )
+[node name="SectorMeteoritos" parent="." instance=ExtResource( 7 )]
+position = Vector2( 960, 540 )
