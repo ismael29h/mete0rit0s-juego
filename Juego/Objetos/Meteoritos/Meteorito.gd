@@ -5,6 +5,9 @@ export var vel_lineal_base:Vector2 = Vector2(300.0,300.0)
 export var vel_ang_base:float = 3.0
 export var vida_base:float = 10.0
 
+onready var impacto_sfx:AudioStreamPlayer2D = $ImpactoSFX
+onready var impacto_anim:AnimationPlayer = $ImpactoAnimation
+
 var vida:float
 
 #func _ready() -> void:
@@ -28,5 +31,16 @@ func crear(pos:Vector2, dir:Vector2, volumen:float) -> void:
 	angular_velocity = vel_ang_base / volumen
 	# Hitpoints
 	vida = vida_base * volumen
-	#debug
-	print("Hitpoints:",vida)
+
+
+func recibir_danio(danio:float) -> void:
+	vida -= danio
+	if vida <= 0:
+		destruir()
+	impacto_sfx.play()
+	impacto_anim.play("impacto")
+
+func destruir() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
+	queue_free()
+
