@@ -168,6 +168,7 @@ shape = SubResource( 4 )
 [node name="DetectorSup" type="Area2D" parent="Detectores"]
 position = Vector2( 0, -900 )
 collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detectores/DetectorSup"]
 modulate = Color( 0.384314, 0.835294, 0.137255, 1 )
@@ -176,6 +177,7 @@ shape = SubResource( 5 )
 [node name="DetectorDer" type="Area2D" parent="Detectores"]
 position = Vector2( 1400, 0 )
 collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detectores/DetectorDer"]
 modulate = Color( 0.384314, 0.835294, 0.137255, 1 )
@@ -184,6 +186,7 @@ shape = SubResource( 6 )
 [node name="DetectorInf" type="Area2D" parent="Detectores"]
 position = Vector2( 0, 900 )
 collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detectores/DetectorInf"]
 modulate = Color( 0.384314, 0.835294, 0.137255, 1 )
@@ -192,6 +195,7 @@ shape = SubResource( 7 )
 [node name="DetectorIzq" type="Area2D" parent="Detectores"]
 position = Vector2( -1400, 0 )
 collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detectores/DetectorIzq"]
 modulate = Color( 0.384314, 0.835294, 0.137255, 1 )
