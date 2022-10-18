@@ -2,12 +2,14 @@ extends Node2D
 class_name SectorMeteoritos
 
 export var cantidad_meteoritos:int = 10
+export var intervalo_spawn:float = 1.2
 
 var spawners:Array
 
 func _ready() -> void:
 	almacen_spawners()
 	conectar_seniales_detectores()
+	$Timer.wait_time = intervalo_spawn
 	$AdvertenciaAnimation.play("Advertencia")
 
 func almacen_spawners() -> void:
