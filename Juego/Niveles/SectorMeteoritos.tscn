@@ -28,6 +28,13 @@ extents = Vector2( 1400, 10 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 900 )
 
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Juego/Fonts/Kenney Future.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 54
+font_data = SubResource( 9 )
+
 [sub_resource type="Animation" id=11]
 resource_name = "Advertencia"
 length = 5.0
@@ -79,6 +86,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 0.0, -7.0, -15.0 ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("Timer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.001
@@ -123,14 +144,8 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="DynamicFontData" id=9]
-font_path = "res://Juego/Fonts/Kenney Future.ttf"
-
-[sub_resource type="DynamicFont" id=10]
-size = 54
-font_data = SubResource( 9 )
-
 [node name="SectorMeteoritos" type="Node2D"]
+position = Vector2( 960, 540 )
 script = ExtResource( 3 )
 
 [node name="BordesPrisionPlayer" type="Node2D" parent="."]
@@ -265,16 +280,12 @@ position = Vector2( -1150, -720 )
 position = Vector2( -575, -720 )
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="AdvertenciaAnimation" type="AnimationPlayer" parent="."]
-anims/Advertencia = SubResource( 11 )
-anims/RESET = SubResource( 14 )
-anims/default = SubResource( 13 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.682353, 0.258824, 0.258824, 1 )
@@ -295,6 +306,12 @@ align = 1
 
 [node name="AdvertenciaSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -15.0
 bus = "SFX"
+
+[node name="AdvertenciaAnimation" type="AnimationPlayer" parent="."]
+anims/Advertencia = SubResource( 11 )
+anims/RESET = SubResource( 14 )
+anims/default = SubResource( 13 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

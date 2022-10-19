@@ -12,6 +12,11 @@ func _ready() -> void:
 	$Timer.wait_time = intervalo_spawn
 	$AdvertenciaAnimation.play("Advertencia")
 
+
+func crear(pos:Vector2, meteoritos:int) -> void:
+	global_position = pos
+	cantidad_meteoritos = meteoritos
+
 func almacen_spawners() -> void:
 	for spawner in $Spawners.get_children():
 		spawners.append(spawner)

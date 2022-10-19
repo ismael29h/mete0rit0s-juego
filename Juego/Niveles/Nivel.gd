@@ -79,5 +79,5 @@ func _on_nave_en_sector_peligro(centro_cam:Vector2, tipo_peligro:String, num_pel
 
 func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void:
 	var nuevo_sector_meteoritos:SectorMeteoritos = sector_meteoritos.instance()
-	nuevo_sector_meteoritos.global_position = centro_camara
+	nuevo_sector_meteoritos.crear(centro_camara, numero_peligros)
 	contenedor_sector_meteoritos.add_child(nuevo_sector_meteoritos)
