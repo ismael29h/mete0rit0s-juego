@@ -30,3 +30,7 @@ position = Vector2( 950, 585 )
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 7 )]
 position = Vector2( 960, 536 )
+
+[node name="TweenCamara" type="Tween" parent="."]
+
+[node name="CameraNivel" type="Camera2D" parent="."]
