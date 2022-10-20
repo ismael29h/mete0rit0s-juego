@@ -37,7 +37,7 @@ func conectar_seniales_detectores() -> void:
 func _on_Timer_timeout() -> void:
 	if cantidad_meteoritos == 0:
 		$Timer.stop()
-		$AdvertenciaAnimation.play("default")
+		$AdvertenciaAnimation.play("default") #...
 		return
 	
 	(spawners[spawner_random()]).spawnear_meteorito()

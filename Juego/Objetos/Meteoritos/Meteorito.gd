@@ -12,6 +12,7 @@ var vida:float
 var esta_en_sector:bool = true setget set_esta_en_sector
 var pos_spawn_original:Vector2
 var vel_spawn_original:Vector2
+var esta_destruido = false
 
 
 #func _ready() -> void:
@@ -41,7 +42,9 @@ func crear(pos:Vector2, dir:Vector2, volumen:float) -> void:
 
 func recibir_danio(danio:float) -> void:
 	vida -= danio
-	if vida <= 0:
+	if vida <= 0 and not esta_destruido:
+		# a causa del doble disparo...
+		esta_destruido = true
 		destruir()
 	impacto_sfx.play()
 	impacto_anim.play("impacto")

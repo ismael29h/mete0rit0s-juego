@@ -16,6 +16,7 @@ explosion = ExtResource( 4 )
 meteorito = ExtResource( 6 )
 explosion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 9 )
+tiempo_transicion_camara = 4.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
@@ -24,13 +25,17 @@ environment = ExtResource( 3 )
 position = Vector2( 392, 329 )
 
 [node name="EnemigoDummy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 950, 585 )
+position = Vector2( 958, 297 )
 
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 7 )]
 position = Vector2( 960, 536 )
+numero_peligros = 1
 
 [node name="TweenCamara" type="Tween" parent="."]
 
 [node name="CameraNivel" type="Camera2D" parent="."]
+
+[editable path="Player"]
+[editable path="Player/Canion"]
