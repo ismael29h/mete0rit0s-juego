@@ -12,12 +12,12 @@ var dir_rotacion:int = 0
 var estado_actual:int = ESTADO.SPAWN # 
 
 onready var canion:Canion = $Canion
-onready var laser:RayoLaser = $LaserBeam2D
+onready var laser:RayoLaser = $LaserBeam2D setget, get_laser
 onready var estela:Estela = $PuntoEstela/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionPlayer
 onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
-onready var escudo:Escudo = $Escudo
+onready var escudo:Escudo = $Escudo setget, get_escudo
 
 # enumerable
 enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
@@ -130,3 +130,11 @@ func recibir_danio(danio:float) -> void:
 	if vida <= 0:
 		destruir()
 	impacto_sfx.play()
+
+
+func get_laser() -> RayoLaser:
+	return laser
+
+
+func get_escudo() -> Escudo:
+	return escudo

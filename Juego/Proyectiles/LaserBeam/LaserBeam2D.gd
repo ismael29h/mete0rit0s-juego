@@ -21,8 +21,12 @@ export var max_length := 1400.0
 export var growth_time := 0.1
 # daño por segundo
 export var danio_laser:float = 0.3
+# manejo de energía
+export var radio_desgaste:float = 1 # no es negativo a propósito
+export var energia:float = 4
 
 var ratio_danio:float = danio_laser * 60 # 60 fps
+var energia_original:float
 
 # If `true`, the laser is firing.
 # It plays appearing and disappearing animations when it's not animating.
@@ -41,6 +45,7 @@ onready var line_width: float = fill.width
 
 
 func _ready() -> void:
+	energia_original = energia
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
 	
@@ -72,6 +77,11 @@ func set_is_casting(cast: bool) -> void:
 # Controls the emission of particles and extends the Line2D to `cast_to` or the ray's 
 # collision point, whichever is closest.
 func cast_beam(delta:float) -> void:
+	if energia <= 0.0:
+		set_is_casting(false)
+		return
+	control_energia(radio_desgaste * delta)
+	
 	var cast_point := cast_to
 
 	force_raycast_update()
@@ -105,3 +115,11 @@ func disappear() -> void:
 		tween.stop_all()
 	tween.interpolate_property(fill, "width", fill.width, 0, growth_time)
 	tween.start()
+
+
+func control_energia(consumo:float) -> void:
+	energia -= consumo
+	if energia > energia_original:
+		energia = energia_original
+		
+	

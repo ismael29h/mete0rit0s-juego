@@ -5,17 +5,25 @@ class_name Escudo
 export var energia:float = 10.0
 export var desgaste:float = 2.0 # 10/5=2seg
 
-
 var esta_activado:bool = false setget, get_esta_activado
+var energia_original:float
+
 
 func _ready() -> void:
+	energia_original = energia
 	set_process(false)
 	controlar_colisionador(true)
 
 
 func _process(delta) -> void:
-	energia -= desgaste * delta
-	if energia <= 0.0:
+	control_energia(desgaste * delta)
+	
+	
+func control_energia(consumo:float) -> void:
+	energia -= consumo
+	if energia > energia_original:
+		energia = energia_original
+	elif energia <= 0.0:
 		desactivar()
 
 func controlar_colisionador(esta_desactivado:bool) -> void:

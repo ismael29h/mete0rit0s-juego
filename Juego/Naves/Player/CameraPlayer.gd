@@ -4,6 +4,7 @@ class_name CameraPlayer
 # En mi caso, no hubo necesidad de crear "CamaraJuego.gd"...
 # el zoom siempre vuelve a su estado original luego de la lluvia de meteoritos
 
+
 export var variacion_zoom:float = 0.1
 export var zoom_min:float = 0.8
 export var zoom_max:float = 1.5
