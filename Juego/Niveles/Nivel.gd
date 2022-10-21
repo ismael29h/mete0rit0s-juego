@@ -74,8 +74,8 @@ func meteoritos_restantes() -> void:
 		#)
 		# Decidí resolver el bug de cámara de esta manera, sigue siendo brusco...
 		# ... intentando disimularlo con la animación de spawn
-		camara_nivel.current = false
 		$Player/AnimationPlayer.play("spawn")
+		camara_nivel.current = false
 		camara_player.current = true
 
 func transicion_camaras(desde:Vector2, hasta:Vector2, camara_actual:Camera2D) -> void:
