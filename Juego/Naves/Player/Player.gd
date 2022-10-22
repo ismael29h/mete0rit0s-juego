@@ -62,16 +62,12 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	#print(rad2deg(rotation))
 	#print(empuje.rotated(rotation))
 
-#func _process(delta: float) -> void:
-	#player_input()
+func _process(delta: float) -> void:
+	player_input()
 
 
-#func player_input() -> void:
-func _unhandled_input(event: InputEvent) -> void:
-	if not esta_input_activo():
-		return
-	
-	# empuje, sonido del motor, estela
+func player_input() -> void:
+		# empuje, sonido del motor, estela
 	empuje = Vector2.ZERO
 	if Input.is_action_pressed("mover_adelante"):
 		empuje = Vector2(potencia_motor, 0)
@@ -82,10 +78,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		estela.set_max_points(0)
 		motor_sfx.encender_motor()
 
-	if event.is_action_released("mover_adelante")\
-	 or event.is_action_released("mover_atrás"):
-		motor_sfx.apagar_motor()
-
 
 	# rotación
 	dir_rotacion = 0
@@ -93,6 +85,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		dir_rotacion -= 1
 	elif Input.is_action_pressed("mover_horario"):
 		dir_rotacion += 1
+
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if not esta_input_activo():
+		return
+
+	# apagar motor	
+	if event.is_action_released("mover_adelante")\
+	 or event.is_action_released("mover_atrás"):
+		motor_sfx.apagar_motor()
+
 
 	# disparar
 	if Input.is_action_pressed("disparo_principal"):	

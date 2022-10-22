@@ -5,6 +5,7 @@ export var energia:float = 6.0
 export var radio_energia_entregada:float = 0.05
 
 onready var sprite_recarga:Sprite = $AreaRecarga/SpriteZonaRecarga
+onready var carga_sfx:AudioStreamPlayer2D = $CargaSFX
 
 var nave_player:Player = null
 var player_en_zona:bool = false
@@ -28,14 +29,16 @@ func puede_recargar(event:InputEvent) -> bool:
 	if sprite_recarga.visible:
 		var hay_input = event.is_action("recarga_escudo") or event.is_action("recarga_laser")
 		if hay_input and player_en_zona and energia > 0.0:
+			if !carga_sfx.playing:
+				carga_sfx.play()
 			return true
 		
+		# cuando la estacion queda sin energía, detalle visual
 		if energia <= 0.0:
-			# cuando la estacion queda sin energía
 			sprite_recarga.visible = false
+			$VacioSFX.play()
 		
 	return false
-
 
 
 func _on_AreaColision_body_entered(body:Node) -> void:

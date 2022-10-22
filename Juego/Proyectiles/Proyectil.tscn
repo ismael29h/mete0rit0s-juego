@@ -15,6 +15,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.81543, 0.435586, 0.435586, 1 )
 rotation = 1.5708
 z_index = 49
 z_as_relative = false
