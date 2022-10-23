@@ -37,6 +37,7 @@ func controlar_estados(nuevo_estado:int) -> void:
 			colisionador.set_deferred("disabled", true)
 			canion.set_puede_disparar(true)
 			Eventos.emit_signal("nave_destruida", self, global_position, 3)
+			#canion.set_puede_disparar(false)
 			queue_free()	
 		_:
 			print('No debería verse esto')
