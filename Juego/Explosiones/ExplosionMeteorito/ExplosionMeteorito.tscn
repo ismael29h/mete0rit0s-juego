@@ -10,7 +10,7 @@
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito/ExplosionMeteorito.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=2]
-resource_name = "destruccion"
+resource_name = "destruccion_2"
 length = 0.8
 step = 0.2
 tracks/0/type = "value"
@@ -317,6 +317,7 @@ tracks/24/keys = {
 }
 
 [node name="ExplosionMeteorito" type="Node2D"]
+rotation = 0.951678
 script = ExtResource( 8 )
 
 [node name="SpriteMed1" type="Sprite" parent="."]
@@ -348,8 +349,8 @@ position = Vector2( -15, -12 )
 texture = ExtResource( 5 )
 
 [node name="DestruccionAnimation" type="AnimationPlayer" parent="."]
-autoplay = "destruccion"
-anims/destruccion = SubResource( 2 )
+anims/destruccion_1 = SubResource( 2 )
+anims/destruccion_2 = SubResource( 2 )
 
 [node name="DestruccionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
