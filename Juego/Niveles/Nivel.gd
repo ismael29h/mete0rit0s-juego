@@ -78,6 +78,15 @@ func meteoritos_restantes() -> void:
 		camara_nivel.current = false
 		camara_player.current = true
 
+
+func crear_posicion_aleatoria(rango_horiz:float, rango_vert:float) -> Vector2:
+	randomize()
+	var rand_x = rand_range(-rango_horiz, rango_horiz)
+	var rand_y = rand_range(-rango_vert, rango_vert)
+	
+	return Vector2(rand_x, rand_y)
+
+
 func transicion_camaras(desde:Vector2, hasta:Vector2, camara_actual:Camera2D) -> void:
 	$TweenCamara.interpolate_property(
 		camara_actual,
@@ -96,10 +105,18 @@ func _on_disparo(proyectil:Proyectil) -> void:
 	contenedor_proyectiles.add_child(proyectil)
 
 
-func _on_nave_destruida(posicion:Vector2, explosiones:int) -> void:
+func _on_nave_destruida(nave:Player, posicion:Vector2, explosiones:int) -> void:
+	if nave is Player:
+		transicion_camaras(
+			posicion,
+			posicion + crear_posicion_aleatoria(-200.0, 200.0),
+			camara_nivel
+		)
+	
+	
 	for i in range(explosiones):	
 		var nueva_explosion:Node2D = explosion.instance()
-		nueva_explosion.global_position = posicion
+		nueva_explosion.global_position = posicion + crear_posicion_aleatoria(100.0, 50.0)
 		contenedor_explosiones.add_child(nueva_explosion)
 		yield(get_tree().create_timer(0.17), "timeout")
 
