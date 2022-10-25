@@ -4,7 +4,7 @@
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Juego/Explosiones/ExplosionPlayer/Explosion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Juego/Test/EnemigoDummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Juego/Naves/NavesEnemigas/EnemigoInterceptor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Juego/Objetos/Meteoritos/Meteorito.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito/ExplosionMeteorito.tscn" type="PackedScene" id=8]
@@ -35,8 +35,8 @@ position = Vector2( 1434, 325 )
 
 [node name="ContenedorEnemigos" type="Node" parent="."]
 
-[node name="EnemigoDummy" parent="ContenedorEnemigos" instance=ExtResource( 5 )]
-position = Vector2( 958, 297 )
+[node name="EnemigoInterceptor" parent="ContenedorEnemigos" instance=ExtResource( 5 )]
+position = Vector2( 652, 290 )
 
 [node name="CameraNivel" type="Camera2D" parent="."]
 

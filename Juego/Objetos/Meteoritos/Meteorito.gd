@@ -76,9 +76,9 @@ func aleatorizar() -> float:
 	return rand_range(1.1, 1.4)
 
 
-func _on_body_entered(body:Node) -> void:
-	if body is Player:
-		body.destruir()
-		destruir()
+#func _on_body_entered(body:Node) -> void:
+#	if body is Player:
+#		body.destruir()
+#		destruir()
 
 
