@@ -23,9 +23,6 @@ tiempo_transicion_camara = 4.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 392, 329 )
-
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 7 )]
@@ -47,5 +44,4 @@ position = Vector2( 958, 297 )
 
 [node name="FondoBasico" parent="." instance=ExtResource( 11 )]
 
-[editable path="Player"]
-[editable path="Player/Canion"]
+[node name="Player" parent="." instance=ExtResource( 1 )]
