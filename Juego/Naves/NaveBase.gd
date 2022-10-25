@@ -6,6 +6,7 @@ extends RigidBody2D
 export var vida:float = 20.0
 
 var estado_actual:int = ESTADO.SPAWN # 
+var numero_explosiones:int = 3
 
 onready var colisionador:CollisionShape2D = $CollisionPlayer
 onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
@@ -29,7 +30,7 @@ func controlar_estados(nuevo_estado:int) -> void:
 		ESTADO.MUERTO:
 			colisionador.set_deferred("disabled", true)
 			canion.set_puede_disparar(true)
-			Eventos.emit_signal("nave_destruida", self, global_position, 3)
+			Eventos.emit_signal("nave_destruida", self, global_position, numero_explosiones)
 			#canion.set_puede_disparar(false)
 			queue_free()	
 		_:

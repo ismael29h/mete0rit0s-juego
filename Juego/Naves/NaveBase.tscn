@@ -23,5 +23,3 @@ position = Vector2( 27, 0 )
 [node name="ImpactoSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,8 +2,11 @@ class_name EnemigoBase
 
 extends NaveBase
 
+
 func _ready() -> void:
 	canion.set_esta_disparando(true)
+	numero_explosiones = 1
+	
 
 # señales
 func _on_body_entered(body:Node) -> void:
@@ -11,3 +14,11 @@ func _on_body_entered(body:Node) -> void:
 	if body is Player:
 		body.destruir()
 		destruir()
+
+
+
+
+
+
+
+
