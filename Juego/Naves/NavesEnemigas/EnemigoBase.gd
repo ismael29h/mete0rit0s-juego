@@ -3,7 +3,7 @@ class_name EnemigoBase
 extends NaveBase
 
 var player_objetivo:Player = null
-
+var dir_player:Vector2
 
 func _ready() -> void:
 	# IMPORTANTE: DENTRO DEL NIVEL, TENER CUIDADO EL ORDEN DE INSTANCIAS DEL PLAYER Y LOS ENEMIGOS
@@ -18,7 +18,7 @@ func _physics_process(delta:float) -> void:
 
 func rotar_hacia_player() -> void:
 	if player_objetivo:
-		var dir_player:Vector2 = player_objetivo.global_position - global_position
+		dir_player = player_objetivo.global_position - global_position
 		rotation = dir_player.angle()
 
 
