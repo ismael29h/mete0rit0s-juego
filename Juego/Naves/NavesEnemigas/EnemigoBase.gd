@@ -6,10 +6,9 @@ var player_objetivo:Player = null
 
 
 func _ready() -> void:
+	# IMPORTANTE: DENTRO DEL NIVEL, TENER CUIDADO EL ORDEN DE INSTANCIAS DEL PLAYER Y LOS ENEMIGOS
 	player_objetivo = DatosJuego.get_player_actual()
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
-	#temporal
-	canion.set_esta_disparando(true)
 	numero_explosiones = 1
 
 
