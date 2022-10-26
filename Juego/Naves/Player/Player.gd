@@ -15,6 +15,11 @@ onready var escudo:Escudo = $Escudo setget, get_escudo
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
 
+
+func _ready() -> void:
+	DatosJuego.set_player_actual(self)
+
+
 # setters - getters
 func get_laser() -> RayoLaser:
 	return laser
