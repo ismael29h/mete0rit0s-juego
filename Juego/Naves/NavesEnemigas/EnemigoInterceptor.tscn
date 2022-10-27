@@ -121,11 +121,11 @@ tracks/4/keys = {
 radius = 218.586
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 527.418
+radius = 575.008
 
 [node name="EnemigoInterceptor" instance=ExtResource( 1 )]
 collision_layer = 2
-collision_mask = 15
+collision_mask = 79
 physics_material_override = SubResource( 7 )
 contacts_reported = 2
 contact_monitor = true

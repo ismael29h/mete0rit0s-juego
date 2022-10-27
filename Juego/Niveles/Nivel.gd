@@ -33,6 +33,8 @@ func conectar_seniales() -> void:
 	Eventos.connect("lluvia_meteoritos", self, "_on_spawn_meteoritos")
 	Eventos.connect("destruccion_meteorito", self, "_on_meteorito_destruido")
 	Eventos.connect("nave_en_sector_peligro", self, "_on_nave_en_sector_peligro")
+	Eventos.connect("base_destruida", self, "_on_base_destruida")
+
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -73,7 +75,7 @@ func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void
 func crear_sector_enemigos(num_enemigos:int) -> void:
 	for i in range(num_enemigos):
 		var nuevo_interceptor:EnemigoInterceptor = enemigo_interceptor.instance()
-		var spawn_pos:Vector2 = crear_posicion_aleatoria(1000.0, 800)
+		var spawn_pos:Vector2 = crear_posicion_aleatoria(1400.0, 1000) # (1000.0, 800.0)
 		nuevo_interceptor.global_position = player.global_position + spawn_pos
 		contenedor_enemigos.add_child(nuevo_interceptor)
 
@@ -129,12 +131,35 @@ func _on_nave_destruida(nave:Player, posicion:Vector2, explosiones:int) -> void:
 			camara_nivel
 		)
 	
-	
+	#crear_explosion(posicion, explosiones, 0.0, Vector2(100.5, 50.0))
 	for i in range(explosiones):	
 		var nueva_explosion:Node2D = explosion.instance()
 		nueva_explosion.global_position = posicion + crear_posicion_aleatoria(100.0, 50.0)
 		contenedor_explosiones.add_child(nueva_explosion)
 		yield(get_tree().create_timer(0.17), "timeout")
+
+
+func _on_base_destruida(sprites_pos:Array) -> void:
+	for pos in sprites_pos:
+		crear_explosion(pos)
+		yield(get_tree().create_timer(0.5), "timeout")
+		
+
+
+func crear_explosion(
+	pos:Vector2,
+	num:int = 1,
+	intervalo:float = 0.0,
+	rango_random:Vector2 = Vector2(0.0, 0.0)
+) -> void:
+	for _i in range(num):
+		var nueva_explosion:Node2D = explosion.instance()
+		nueva_explosion.global_position = pos + crear_posicion_aleatoria(
+			rango_random.x,
+			rango_random.y
+		)
+		contenedor_explosiones.add_child(nueva_explosion)
+		yield(get_tree().create_timer(intervalo), "timeout")
 
 
 func _on_spawn_meteoritos(pos_spawn:Vector2, dir_meteorito:Vector2, volumen:float) -> void:

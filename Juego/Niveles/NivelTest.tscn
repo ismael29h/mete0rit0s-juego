@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Juego/Niveles/SectorMeteoritos.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/Naves/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Juego/Niveles/Fondos/FondoBasico.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Juego/Naves/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=12]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -22,6 +23,7 @@ enemigo_interceptor = ExtResource( 5 )
 tiempo_transicion_camara = 4.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 314, 831 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
@@ -33,13 +35,16 @@ position = Vector2( 723, 875 )
 
 [node name="ContenedorEstaciones" type="Node" parent="."]
 
+[node name="BaseEnemiga" parent="ContenedorEstaciones" instance=ExtResource( 12 )]
+position = Vector2( 524, 375 )
+
 [node name="EstacionRecarga" parent="ContenedorEstaciones" instance=ExtResource( 10 )]
-position = Vector2( 1434, 325 )
+position = Vector2( 1156, 662 )
 
 [node name="TriggersInterceptores" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" instance=ExtResource( 7 )]
-position = Vector2( 524, 375 )
+position = Vector2( 1215, 218 )
 tipo_peligro = "Enemigo"
 numero_peligros = 3
 

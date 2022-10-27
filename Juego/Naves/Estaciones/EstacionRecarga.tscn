@@ -41,7 +41,7 @@ radio_energia_entregada = 1.0
 
 [node name="AreaColision" type="Area2D" parent="."]
 collision_layer = 32
-collision_mask = 27
+collision_mask = 91
 
 [node name="SpriteEstacion" type="Sprite" parent="AreaColision"]
 texture = ExtResource( 2 )
