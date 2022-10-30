@@ -5,7 +5,6 @@
 [ext_resource path="res://Juego/Proyectiles/ProyectilPlayer.tscn" type="PackedScene" id=3]
 
 [node name="Canion" type="Node2D"]
-z_index = 49
 z_as_relative = false
 script = ExtResource( 1 )
 proyectil = ExtResource( 3 )

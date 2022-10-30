@@ -118,10 +118,10 @@ tracks/4/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 218.586
+radius = 276.007
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 575.008
+radius = 688.047
 
 [node name="EnemigoInterceptor" instance=ExtResource( 1 )]
 collision_layer = 2

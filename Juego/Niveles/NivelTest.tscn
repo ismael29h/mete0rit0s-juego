@@ -36,7 +36,10 @@ position = Vector2( 723, 875 )
 [node name="ContenedorEstaciones" type="Node" parent="."]
 
 [node name="BaseEnemiga" parent="ContenedorEstaciones" instance=ExtResource( 12 )]
-position = Vector2( 524, 375 )
+position = Vector2( 579, -856 )
+
+[node name="BaseEnemiga2" parent="ContenedorEstaciones" instance=ExtResource( 12 )]
+position = Vector2( 1815, -856 )
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" instance=ExtResource( 10 )]
 position = Vector2( 1156, 662 )
