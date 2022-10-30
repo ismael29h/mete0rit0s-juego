@@ -24,7 +24,7 @@ enemigo_interceptor = ExtResource( 5 )
 tiempo_transicion_camara = 4.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 314, 831 )
+position = Vector2( 218, 1119 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
