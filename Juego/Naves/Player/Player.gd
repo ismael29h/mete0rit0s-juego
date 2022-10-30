@@ -102,3 +102,9 @@ func esta_input_activo() -> bool:
 	
 	return true
 
+
+func desactivar_controles() -> void:
+	controlar_estados(ESTADO.SPAWN)
+	empuje = Vector2.ZERO
+	motor_sfx.apagar_motor()
+	laser.set_is_casting(false)
