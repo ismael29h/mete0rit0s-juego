@@ -7,6 +7,7 @@ export var meteorito:PackedScene = null
 export var explosion_meteorito:PackedScene = null
 export var sector_meteoritos:PackedScene = null
 export var enemigo_interceptor:PackedScene = null
+export var rele_masa:PackedScene = null
 export var tiempo_transicion_camara:float = 2
 
 onready var contenedor_proyectiles:Node
@@ -19,12 +20,26 @@ onready var camara_player:Camera2D = $Player/CameraPlayer
 
 var meteoritos_totales:int = 0
 var player:Player = null
+var num_bases_enemigas = 0
 
 
 func _ready() -> void:
 	conectar_seniales()
 	crear_contenedores()
+	num_bases_enemigas = contabilizar_bases_enemigas()
 	player = DatosJuego.get_player_actual()
+
+
+func contabilizar_bases_enemigas() -> int:
+	return $ContenedorBasesEnemigas.get_child_count()
+
+
+func crear_rele() -> void:
+	var nuevo_rele_masa:ReleMasa = rele_masa.instance()
+	nuevo_rele_masa.global_position = player.global_position + crear_posicion_aleatoria(1000.0, 800.0)
+	add_child(nuevo_rele_masa)
+	print("paso la prueba")
+
 
 
 func conectar_seniales() -> void:
@@ -140,13 +155,6 @@ func _on_nave_destruida(nave:Player, posicion:Vector2, explosiones:int) -> void:
 		yield(get_tree().create_timer(0.17), "timeout")
 
 
-func _on_base_destruida(sprites_pos:Array) -> void:
-	for pos in sprites_pos:
-		crear_explosion(pos)
-		yield(get_tree().create_timer(0.5), "timeout")
-		
-
-
 func crear_explosion(
 	pos:Vector2,
 	num:int = 1,
@@ -190,3 +198,14 @@ func _on_nave_en_sector_peligro(centro_cam:Vector2, tipo_peligro:String, num_pel
 
 func _on_spawn_orbital(enemigo:EnemigoOrbital) -> void:
 	contenedor_enemigos.add_child(enemigo)
+
+
+func _on_base_destruida(_base, sprites_pos:Array) -> void:
+	print(sprites_pos)
+	for pos in sprites_pos:
+		crear_explosion(pos, 2.0)
+		yield(get_tree().create_timer(0.5), "timeout")
+		
+	num_bases_enemigas -= 1
+	if num_bases_enemigas == 0:
+		crear_rele()
