@@ -24,7 +24,7 @@ func _ready() -> void:
 	#(disparo_sfx.stream as AudioStreamOGGVorbis).set_loop(false)
 
 func _process(delta: float) -> void:
-	if esta_disparando and esta_enfriado:
+	if esta_disparando and esta_enfriado and puede_disparar:
 		disparar()
 
 
