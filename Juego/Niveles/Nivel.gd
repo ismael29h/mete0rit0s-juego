@@ -24,6 +24,7 @@ var num_bases_enemigas = 0
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	conectar_seniales()
 	crear_contenedores()
 	num_bases_enemigas = contabilizar_bases_enemigas()

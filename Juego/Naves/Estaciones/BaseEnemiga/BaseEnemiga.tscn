@@ -146,6 +146,7 @@ position = Vector2( 0, 354 )
 position = Vector2( -318, -33 )
 
 [node name="RutaEnemigo" type="Path2D" parent="."]
+scale = Vector2( 1.16432, 1.16432 )
 curve = SubResource( 10 )
 script = ExtResource( 9 )
 
