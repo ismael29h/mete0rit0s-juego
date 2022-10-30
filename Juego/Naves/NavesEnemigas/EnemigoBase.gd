@@ -4,6 +4,8 @@ extends NaveBase
 
 var player_objetivo:Player = null
 var dir_player:Vector2
+var frame_actual:int = 0
+
 
 func _ready() -> void:
 	# IMPORTANTE: DENTRO DEL NIVEL, TENER CUIDADO EL ORDEN DE INSTANCIAS DEL PLAYER Y LOS ENEMIGOS
@@ -13,7 +15,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta:float) -> void:
-	rotar_hacia_player()
+	frame_actual += 1
+	if frame_actual % 3 == 0:
+		rotar_hacia_player()
 
 
 func rotar_hacia_player() -> void:
