@@ -24,6 +24,7 @@ var num_bases_enemigas = 0
 
 
 func _ready() -> void:
+	Eventos.emit_signal("nivel_iniciado")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	conectar_seniales()
 	crear_contenedores()
@@ -152,7 +153,9 @@ func _on_nave_destruida(nave:Player, posicion:Vector2, explosiones:int) -> void:
 			posicion + crear_posicion_aleatoria(-200.0, 200.0),
 			camara_nivel
 		)
-	
+		
+		$RestartTimer.start()
+		
 	#crear_explosion(posicion, explosiones, 0.0, Vector2(100.5, 50.0))
 	for i in range(explosiones):	
 		var nueva_explosion:Node2D = explosion.instance()
@@ -215,3 +218,9 @@ func _on_base_destruida(_base, sprites_pos:Array) -> void:
 	num_bases_enemigas -= 1
 	if num_bases_enemigas == 0:
 		crear_rele()
+
+
+func _on_RestartTimer_timeout() -> void:
+	Eventos.emit_signal("nivel_terminado")
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().reload_current_scene()
