@@ -25,7 +25,6 @@ script = ExtResource( 2 )
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
-visible = false
 margin_right = 1921.0
 margin_bottom = 1078.0
 mouse_filter = 2
@@ -73,5 +72,26 @@ text = "Meteoritos restantes: 5"
 align = 1
 autowrap = true
 
+[node name="InfoTiempoRestante" parent="." instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -171.0
+margin_right = 0.0
+margin_bottom = 102.0
+
+[node name="Label" parent="InfoTiempoRestante" index="1"]
+margin_left = -63.0
+margin_top = -33.0
+margin_right = 63.0
+margin_bottom = 33.0
+text = "Tiempo restante
+01:00"
+align = 1
+autowrap = true
+
+[node name="AutoOcultarTimer" parent="InfoTiempoRestante" index="2"]
+wait_time = 3.0
+
 [editable path="InfoZonaRecarga"]
 [editable path="InfoMeteoritos"]
+[editable path="InfoTiempoRestante"]

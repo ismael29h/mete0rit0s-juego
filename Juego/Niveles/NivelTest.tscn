@@ -24,6 +24,7 @@ sector_meteoritos = ExtResource( 9 )
 enemigo_interceptor = ExtResource( 5 )
 rele_masa = ExtResource( 13 )
 tiempo_transicion_camara = 4.0
+tiempo_limite = 35
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 
@@ -57,6 +58,8 @@ numero_peligros = 3
 
 [node name="RestartTimer" type="Timer" parent="."]
 
+[node name="ActualizadorTimer" type="Timer" parent="."]
+
 [node name="FondoBasico" parent="." instance=ExtResource( 11 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -66,3 +69,4 @@ position = Vector2( 218, 1119 )
 position = Vector2( 1260, 705 )
 
 [connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
+[connection signal="timeout" from="ActualizadorTimer" to="." method="_on_ActualizadorTimer_timeout"]
