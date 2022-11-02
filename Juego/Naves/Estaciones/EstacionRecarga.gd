@@ -25,6 +25,8 @@ func _unhandled_input(event:InputEvent) -> void:
 
 	if event.is_action_released("recarga_laser"):
 		Eventos.emit_signal("ocultar_energia_laser")
+	elif event.is_action_released("recarga_escudo"):
+		Eventos.emit_signal("cambio_energia_escudo")
 
 func puede_recargar(event:InputEvent) -> bool:
 	if sprite_recarga.visible:
