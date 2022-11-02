@@ -47,11 +47,16 @@ func _on_AreaColision_body_entered(body:Node) -> void:
 
 func _on_AreaRecarga_body_entered(body:Node) -> void:
 	if body is Player:
+		player_en_zona = true
 		nave_player = body
+		Eventos.emit_signal("detecto_zona_recarga", true)
 	body.set_gravity_scale(0.1)
-	player_en_zona = true
+	
 
 
 func _on_AreaRecarga_body_exited(body:Node) -> void:
+	if body is Player:
+		player_en_zona = false
+		Eventos.emit_signal("detecto_zona_recarga", false)
 	body.set_gravity_scale(0.0)
-	player_en_zona = false
+	
