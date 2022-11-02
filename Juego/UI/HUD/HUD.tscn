@@ -44,7 +44,7 @@ stretch_mode = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeCanvas"]
 anims/fade_in = SubResource( 2 )
 
-[node name="InfoZonaRecarga" parent="." instance=ExtResource( 3 )]
+[node name="InfoZonaRecarga" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 margin_right = 180.0
 margin_bottom = 126.0
 
@@ -57,7 +57,7 @@ text = "En Zona de Recarga"
 align = 1
 autowrap = true
 
-[node name="InfoMeteoritos" parent="." instance=ExtResource( 3 )]
+[node name="InfoMeteoritos" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -120.0
@@ -73,7 +73,7 @@ text = "Meteoritos restantes: 5"
 align = 1
 autowrap = true
 
-[node name="InfoTiempoRestante" parent="." instance=ExtResource( 3 )]
+[node name="InfoTiempoRestante" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -171.0
@@ -93,9 +93,9 @@ autowrap = true
 [node name="AutoOcultarTimer" parent="InfoTiempoRestante" index="2"]
 wait_time = 3.0
 
-[node name="InfoLaser" parent="." instance=ExtResource( 4 )]
+[node name="InfoLaser" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
 
-[node name="InfoEscudo" parent="." instance=ExtResource( 4 )]
+[node name="InfoEscudo" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
 margin_top = -182.0
 margin_bottom = -94.0
 
