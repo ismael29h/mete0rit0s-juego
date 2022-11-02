@@ -105,7 +105,7 @@ func crear_sector_enemigos(num_enemigos:int) -> void:
 
 func meteoritos_restantes() -> void:
 	meteoritos_totales -= 1
-	print(meteoritos_totales)
+	Eventos.emit_signal("cambio_numero_meteoritos", meteoritos_totales)
 	if meteoritos_totales == 0:
 		contenedor_sector_meteoritos.get_child(0).queue_free()
 		#transicion_camaras(
@@ -201,6 +201,7 @@ func _on_meteorito_destruido(pos:Vector2) -> void:
 func _on_nave_en_sector_peligro(centro_cam:Vector2, tipo_peligro:String, num_peligros:int) -> void:
 	if tipo_peligro == "Meteorito":
 		crear_sector_meteoritos(centro_cam, num_peligros)
+		Eventos.emit_signal("cambio_numero_meteoritos", num_peligros)
 	elif tipo_peligro == "Enemigo":
 		crear_sector_enemigos(num_peligros)
 

@@ -96,6 +96,7 @@ patch_margin_top = 13
 patch_margin_right = 13
 patch_margin_bottom = 13
 script = ExtResource( 3 )
+auto_ocultar = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "ocultar"
@@ -117,3 +118,9 @@ margin_bottom = 19.5
 custom_fonts/font = SubResource( 1 )
 text = "EN ZONA DE
    RECARGA"
+
+[node name="AutoOcultarTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="AutoOcultarTimer" to="." method="_on_AutoOcultarTimer_timeout"]
