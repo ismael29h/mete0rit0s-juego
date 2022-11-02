@@ -84,7 +84,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=1]
-size = 17
 font_data = ExtResource( 2 )
 
 [node name="ContenedorInformacion" type="NinePatchRect"]
