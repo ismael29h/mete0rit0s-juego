@@ -13,6 +13,8 @@ signal detecto_zona_recarga(entrando)
 signal cambio_numero_meteoritos(numero)
 signal actualizar_tiempo(tiempo_restante)
 signal cambio_energia_laser(energia_max, energia_actual)
+signal minimapa_objeto_creado()
+signal minimapa_objeto_destruido(objeto)
 # los siguientes no funcionaban dentro de HUD.gd
 signal ocultar_energia_laser()
 signal ocultar_energia_escudo()

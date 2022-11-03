@@ -46,6 +46,7 @@ func destruir() -> void:
 		$Sprites/SpaceStation4.global_position
 	]
 	Eventos.emit_signal("base_destruida", self, sprites_pos)
+	Eventos.emit_signal("minimapa_objeto_destruido", self)
 	queue_free()
 
 
