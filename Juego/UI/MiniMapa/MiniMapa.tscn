@@ -67,5 +67,12 @@ texture = ExtResource( 7 )
 visible = false
 modulate = Color( 0.941176, 0.243137, 0.0784314, 1 )
 position = Vector2( 87, 77 )
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 6 )
+
+[node name="TweenVisibilidad" type="Tween" parent="."]
+
+[node name="TimerVisibilidad" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerVisibilidad" to="." method="_on_TimerVisibilidad_timeout"]

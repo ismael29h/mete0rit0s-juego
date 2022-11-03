@@ -1,6 +1,7 @@
 extends MarginContainer
 
 export var escala_zoom:float = 4.0
+export var tiempo_visible:float = 5.0
 
 onready var zona_renderizado:TextureRect = $CuadroMiniMapa/ContenedorIconos/ZonaRenderizadoMiniMapa
 onready var icono_player:Sprite = $CuadroMiniMapa/ContenedorIconos/ZonaRenderizadoMiniMapa/IconoPlayer
@@ -12,6 +13,10 @@ onready var icono_interceptor:Sprite = $CuadroMiniMapa/ContenedorIconos/ZonaRend
 
 var escala_grilla:Vector2
 var player:Player = null
+var esta_visible:bool = true setget set_esta_visible
+
+onready var timer_visibilidad:Timer = $TimerVisibilidad
+onready var tween_visibilidad:Tween = $TweenVisibilidad
 
 
 func _ready() -> void:
@@ -34,6 +39,28 @@ func _process(delta:float) -> void:
 
 	icono_player.rotation_degrees = player.rotation_degrees + 90
 	modificar_posicion_iconos()
+
+# s-g
+func set_esta_visible(hacer_visible:bool) -> void:
+	if hacer_visible:
+		timer_visibilidad.start()
+	
+	esta_visible = hacer_visible
+	tween_visibilidad.interpolate_property(
+		self,
+		"modulate",
+		Color(1, 1, 1, not hacer_visible),
+		Color(1, 1, 1, hacer_visible),
+		0.5,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT
+	)
+	tween_visibilidad.start()
+
+
+func _unhandled_input(event:InputEvent) -> void:
+	if event.is_action_pressed("minimapa"):
+		set_esta_visible(not esta_visible)
 
 
 func quitar_icono(objeto:Node2D) -> void:
@@ -85,3 +112,8 @@ func _on_nivel_iniciado() -> void:
 func _on_nave_destruida(nave:NaveBase, _posicion, _explosiones) -> void:
 	if nave is Player:
 		player = null
+
+
+func _on_TimerVisibilidad_timeout() -> void:
+	if esta_visible:
+		set_esta_visible(false)
