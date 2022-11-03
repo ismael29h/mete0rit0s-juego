@@ -34,7 +34,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "default"
 
-[node name="EstacionRecarga" type="Node2D"]
+[node name="EstacionRecarga" type="Node2D" groups=["minimapa"]]
 script = ExtResource( 3 )
 energia = 100.0
 radio_energia_entregada = 1.0
