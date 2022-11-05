@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Naves/Estaciones/dotWhite.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Naves/Estaciones/spaceStation_021.png" type="Texture" id=2]
 [ext_resource path="res://Juego/Naves/Estaciones/EstacionRecarga.gd" type="Script" id=3]
 [ext_resource path="res://Juego/Naves/Estaciones/recarga.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Juego/Naves/Estaciones/vacio.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Juego/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 73.0
@@ -33,6 +34,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "default"
+
+[sub_resource type="DynamicFont" id=6]
+size = 17
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.580392, 0.92549, 0.176471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.113725, 0.0901961, 0.0666667, 1 )
 
 [node name="EstacionRecarga" type="Node2D" groups=["minimapa"]]
 script = ExtResource( 3 )
@@ -82,6 +95,16 @@ bus = "SFX"
 [node name="VacioSFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -1 )
 stream = ExtResource( 5 )
+
+[node name="BarraEnergia" type="ProgressBar" parent="."]
+margin_left = -54.0
+margin_top = -169.0
+margin_right = 57.0
+margin_bottom = -149.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+value = 80.0
 
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
 [connection signal="body_entered" from="AreaRecarga" to="." method="_on_AreaRecarga_body_entered"]

@@ -6,10 +6,17 @@ export var radio_energia_entregada:float = 0.05
 
 onready var sprite_recarga:Sprite = $AreaRecarga/SpriteZonaRecarga
 onready var carga_sfx:AudioStreamPlayer2D = $CargaSFX
+onready var barra_energia:ProgressBar = $BarraEnergia
 
 var nave_player:Player = null
 var player_en_zona:bool = false
 var energia_max:float = energia
+
+
+func _ready() -> void:
+	barra_energia.max_value = energia
+	barra_energia.value = energia
+
 
 func _unhandled_input(event:InputEvent) -> void:
 	if not puede_recargar(event):
@@ -40,7 +47,7 @@ func puede_recargar(event:InputEvent) -> bool:
 		if energia <= 0.0:
 			sprite_recarga.visible = false
 			$VacioSFX.play()
-		
+		barra_energia.value = energia
 	return false
 
 
