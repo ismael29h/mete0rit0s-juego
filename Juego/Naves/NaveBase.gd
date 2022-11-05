@@ -55,7 +55,7 @@ func recibir_danio(danio:float) -> void:
 	if vida <= 0.0:
 		destruir()
 	
-	barra_salud.value = vida
+	barra_salud.controlar_barra(vida, true)
 	impacto_sfx.play()
 	
 

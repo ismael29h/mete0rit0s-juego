@@ -66,6 +66,11 @@ rotation = -1.5708
 scale = Vector2( 1, 10 )
 collision_mask = 64
 
+[node name="BarraSalud" parent="." index="6"]
+margin_top = 45.0
+margin_right = 17.0
+margin_bottom = 57.0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Canion"]
