@@ -19,8 +19,7 @@ enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 
 
 func _ready() -> void:
-	barra_salud.max_value = vida
-	barra_salud.value = vida
+	barra_salud.set_valores(vida)
 	controlar_estados(estado_actual)
 
 
@@ -67,6 +66,7 @@ func _on_AnimationPlayer_animation_finished(anim_name:String) -> void:
 
 
 func _on_body_entered(body:Node) -> void:
+	print(body, "-", name)
 	if body is Meteorito:
 		body.destruir()
 		destruir()

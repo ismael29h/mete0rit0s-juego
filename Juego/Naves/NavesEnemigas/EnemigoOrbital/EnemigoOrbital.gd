@@ -39,6 +39,7 @@ func crear(pos:Vector2, padre:Node2D, ruta_duenia:Path2D) -> void:
 	
 
 
-func _on_base_destruida(base:Node2D, _pos) -> void:
+func _on_base_destruida(base:Node2D, _pos, _explosiones) -> void:
+	._on_base_destruida(base, _pos, _explosiones)
 	if base == estacion_padre:
 		destruir()

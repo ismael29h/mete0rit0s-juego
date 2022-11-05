@@ -3,10 +3,19 @@ extends ProgressBar
 
 
 onready var tween_visibilidad:Tween = $TweenVisibilidad
-
+export var siempre_visible:bool = false
 
 func _ready() -> void:
-	modulate = Color(1,1,1,0)
+	modulate = Color(1,1,1, siempre_visible)
+
+
+func set_valores(vida:float) -> void:
+	max_value = vida
+	value = vida
+
+
+func set_vida_actual(vida:float) -> void:
+	value = vida
 
 
 func controlar_barra(vida_nave:float, mostrar:bool) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Juego/Naves/Estaciones/BaseEnemiga/spaceStation_017.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Naves/Estaciones/BaseEnemiga/spaceStation_024.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Juego/Naves/NavesEnemigas/EnemigoOrbital/EnemigoOrbital.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Naves/Estaciones/BaseEnemiga/PosicionesSpawn.gd" type="Script" id=8]
 [ext_resource path="res://Juego/Naves/Estaciones/BaseEnemiga/RutaEnemigo.gd" type="Script" id=9]
+[ext_resource path="res://Juego/UI/BarraSalud/BarraSalud.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 64.0
@@ -76,6 +77,23 @@ tracks/0/keys = {
 _data = {
 "points": PoolVector2Array( -24.3424, 73.0273, 24.3424, -73.0273, 303, -6, 0, 43.8164, 0, -43.8164, 206, -206, 53.5533, -38.9479, -53.5533, 38.9479, 60, -288, 60.8561, 4.86848, -60.8561, -4.86848, -150, -259, -31.6452, -73.0273, 31.6452, 73.0273, -269, -113, -26.7767, -97.3697, 26.7767, 97.3697, -286, 74, -4.86848, -77.8958, 4.86848, 77.8958, -189, 225, -14.6055, -38.9479, 14.6055, 38.9479, -52, 323, -60.8561, 46.2506, 60.8561, -46.2506, 160, 284, -51.1191, 43.8164, 51.1191, -43.8164, 257, 142, 0, 0, 0, 0, 303, -6 )
 }
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.745098, 0.8, 0.890196, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.00392157, 0.00392157, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.945098, 0.384314, 0.133333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.109804, 0.0313726, 0.0313726, 1 )
 
 [node name="BaseEnemiga" type="Node2D" groups=["minimapa"]]
 z_index = 45
@@ -151,6 +169,16 @@ curve = SubResource( 10 )
 script = ExtResource( 9 )
 
 [node name="TimerSpawnerEnemigos" type="Timer" parent="."]
+
+[node name="BarraSalud" parent="." instance=ExtResource( 10 )]
+margin_left = -107.0
+margin_top = -287.0
+margin_right = 107.0
+margin_bottom = -260.0
+rect_rotation = 0.0
+custom_styles/fg = SubResource( 11 )
+custom_styles/bg = SubResource( 12 )
+siempre_visible = true
 
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

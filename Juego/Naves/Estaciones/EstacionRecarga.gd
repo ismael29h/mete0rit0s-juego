@@ -9,7 +9,7 @@ onready var carga_sfx:AudioStreamPlayer2D = $CargaSFX
 
 var nave_player:Player = null
 var player_en_zona:bool = false
-
+var energia_max:float = energia
 
 func _unhandled_input(event:InputEvent) -> void:
 	if not puede_recargar(event):
@@ -26,7 +26,7 @@ func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_released("recarga_laser"):
 		Eventos.emit_signal("ocultar_energia_laser")
 	elif event.is_action_released("recarga_escudo"):
-		Eventos.emit_signal("cambio_energia_escudo")
+		Eventos.emit_signal("cambio_energia_escudo", energia_max, energia)
 
 func puede_recargar(event:InputEvent) -> bool:
 	if sprite_recarga.visible:

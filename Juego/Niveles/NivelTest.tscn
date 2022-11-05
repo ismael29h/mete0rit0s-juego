@@ -35,12 +35,12 @@ environment = ExtResource( 3 )
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 7 )]
 position = Vector2( 723, 875 )
-numero_peligros = 1
+numero_peligros = 10
 
 [node name="ContenedorBasesEnemigas" type="Node" parent="."]
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" instance=ExtResource( 12 )]
-position = Vector2( 579, -856 )
+position = Vector2( 398, -1269 )
 
 [node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" instance=ExtResource( 12 )]
 position = Vector2( 1815, -856 )

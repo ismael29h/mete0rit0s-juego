@@ -29,8 +29,10 @@ position = Vector2( 0, 1 )
 z_index = 40
 z_as_relative = false
 collision_layer = 2
-collision_mask = 77
+collision_mask = 79
 mode = 3
+contacts_reported = 2
+contact_monitor = true
 script = ExtResource( 3 )
 vida = 10.0
 rango_max_ataque = 850.0
@@ -71,6 +73,7 @@ margin_top = 45.0
 margin_right = 17.0
 margin_bottom = 57.0
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Canion"]

@@ -9,12 +9,14 @@ export var intervalo_spawn:float = 1.2
 
 onready var impacto_sfx:AudioStreamPlayer2D = $ImpactoSFX
 onready var timer_spawner:Timer = $TimerSpawnerEnemigos
+onready var barra_salud:BarraSalud = $BarraSalud
 
 var esta_destruida:bool = false
 var posicion_spawn:Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	barra_salud.set_valores(vida)
 	timer_spawner.wait_time = intervalo_spawn
 	$AnimationPlayer.play(elegir_animacion_aleatoria())
 
@@ -34,7 +36,8 @@ func recibir_danio(danio:float) -> void:
 	if vida <= 0 and not esta_destruida:
 		esta_destruida = true
 		destruir()
-		
+	
+	barra_salud.set_vida_actual(vida)
 	impacto_sfx.play()
 
 
