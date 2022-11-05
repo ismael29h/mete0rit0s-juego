@@ -11,10 +11,17 @@ var numero_explosiones:int = 3
 onready var colisionador:CollisionShape2D = $CollisionPlayer
 onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
 onready var canion:Canion = $Canion
+onready var barra_salud:ProgressBar = $BarraSalud
 
 
 # enumerable
 enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
+
+
+func _ready() -> void:
+	barra_salud.max_value = vida
+	barra_salud.value = vida
+	controlar_estados(estado_actual)
 
 
 func controlar_estados(nuevo_estado:int) -> void:
@@ -45,9 +52,12 @@ func destruir() -> void:
 
 func recibir_danio(danio:float) -> void:
 	vida -= danio
-	if vida <= 0:
+	if vida <= 0.0:
 		destruir()
+	
+	barra_salud.value = vida
 	impacto_sfx.play()
+	
 
 
 # Señales

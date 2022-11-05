@@ -114,6 +114,10 @@ func _on_nave_destruida(nave:NaveBase, _posicion, _explosiones) -> void:
 		player = null
 
 
+func ocultar() -> void:
+	set_esta_visible(false)
+
+
 func _on_TimerVisibilidad_timeout() -> void:
 	if esta_visible:
 		set_esta_visible(false)

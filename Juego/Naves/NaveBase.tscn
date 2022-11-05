@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Juego/Proyectiles/Canion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Juego/Naves/NaveBase.gd" type="Script" id=3]
 [ext_resource path="res://Juego/Sonidos/Audio/PlayerImpacto.ogg" type="AudioStream" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.164706, 0.870588, 0.87451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.00392157, 0.00392157, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.945098, 0.384314, 0.133333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.109804, 0.0313726, 0.0313726, 1 )
 
 [node name="NaveBase" type="RigidBody2D"]
 collision_layer = 0
@@ -23,3 +40,15 @@ position = Vector2( 27, 0 )
 [node name="ImpactoSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
+
+[node name="BarraSalud" type="ProgressBar" parent="."]
+margin_left = -80.0
+margin_top = 56.0
+margin_right = 32.0
+margin_bottom = 70.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 80.0
+rounded = true
+percent_visible = false
