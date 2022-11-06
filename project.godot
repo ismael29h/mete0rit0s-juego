@@ -160,6 +160,7 @@ config/icon="res://Juego/Naves/Player/player_base.png"
 
 Eventos="*res://Juego/Autoloads/Eventos.gd"
 DatosJuego="*res://Juego/Autoloads/DatosJuego.gd"
+MusicaJuego="*res://Juego/Niveles/Musicas/MusicaJuego.tscn"
 
 [display]
 
