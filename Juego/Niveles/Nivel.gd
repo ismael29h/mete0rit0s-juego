@@ -58,13 +58,21 @@ func crear_rele() -> void:
 
 
 func conectar_seniales() -> void:
+# warning-ignore:return_value_discarded
 	Eventos.connect("disparo", self, "_on_disparo")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
+# warning-ignore:return_value_discarded
 	Eventos.connect("lluvia_meteoritos", self, "_on_spawn_meteoritos")
+# warning-ignore:return_value_discarded
 	Eventos.connect("destruccion_meteorito", self, "_on_meteorito_destruido")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_en_sector_peligro", self, "_on_nave_en_sector_peligro")
+# warning-ignore:return_value_discarded
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
+# warning-ignore:return_value_discarded
 	Eventos.connect("spawn_orbital", self, "_on_spawn_orbital")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nivel_completado", self, "_on_nivel_completado")
 
 
@@ -106,7 +114,7 @@ func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void
 
 
 func crear_sector_enemigos(num_enemigos:int) -> void:
-	for i in range(num_enemigos):
+	for _i in range(num_enemigos):
 		var nuevo_interceptor:EnemigoInterceptor = enemigo_interceptor.instance()
 		var spawn_pos:Vector2 = crear_posicion_aleatoria(2000.0, 1600.0)#(1400.0, 1000) # (1000.0, 800.0)
 		nuevo_interceptor.global_position = player.global_position + spawn_pos
@@ -168,7 +176,7 @@ func _on_nave_destruida(nave:Player, posicion:Vector2, explosiones:int) -> void:
 		$RestartTimer.start()
 		
 	#crear_explosion(posicion, explosiones, 0.0, Vector2(100.5, 50.0))
-	for i in range(explosiones):	
+	for _i in range(explosiones):	
 		var nueva_explosion:Node2D = explosion.instance()
 		nueva_explosion.global_position = posicion + crear_posicion_aleatoria(100.0, 50.0)
 		contenedor_explosiones.add_child(nueva_explosion)
@@ -234,8 +242,8 @@ func _on_spawn_orbital(enemigo:EnemigoOrbital) -> void:
 
 
 func _on_base_destruida(_base, sprites_pos:Array) -> void:
-	print(sprites_pos)
 	for pos in sprites_pos:
+# warning-ignore:narrowing_conversion
 		crear_explosion(pos, 2.0)
 		yield(get_tree().create_timer(0.5), "timeout")
 		
@@ -245,8 +253,9 @@ func _on_base_destruida(_base, sprites_pos:Array) -> void:
 
 
 func _on_RestartTimer_timeout() -> void:
-	Eventos.emit_signal("nivel_terminado")
 	yield(get_tree().create_timer(1.0), "timeout")
+	Eventos.emit_signal("nivel_terminado")
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
 
@@ -260,4 +269,5 @@ func _on_ActualizadorTimer_timeout() -> void:
 func _on_nivel_completado() -> void:
 	Eventos.emit_signal("nivel_terminado")
 	yield(get_tree().create_timer(1.0), "timeout")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(siguiente_nivel)

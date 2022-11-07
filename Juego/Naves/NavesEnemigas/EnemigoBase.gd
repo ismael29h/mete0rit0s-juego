@@ -10,11 +10,12 @@ var frame_actual:int = 0
 func _ready() -> void:
 	# IMPORTANTE: DENTRO DEL NIVEL, TENER CUIDADO EL ORDEN DE INSTANCIAS DEL PLAYER Y LOS ENEMIGOS
 	player_objetivo = DatosJuego.get_player_actual()
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	numero_explosiones = 1
 
 
-func _physics_process(delta:float) -> void:
+func _physics_process(_delta:float) -> void:
 	frame_actual += 1
 	if frame_actual % 3 == 0:
 		rotar_hacia_player()

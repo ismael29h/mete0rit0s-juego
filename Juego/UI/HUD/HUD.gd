@@ -13,16 +13,26 @@ func _ready() -> void:
 
 
 func conectar_seniales() -> void:
+# warning-ignore:return_value_discarded
 	Eventos.connect("nivel_iniciado", self, "fade_out")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nivel_terminado", self, "fade_in")
+# warning-ignore:return_value_discarded
 	Eventos.connect("detecto_zona_recarga", self, "_on_detecto_zona_recarga")
+# warning-ignore:return_value_discarded
 	Eventos.connect("cambio_numero_meteoritos", self, "_on_actualizar_info_meteoritos")
+# warning-ignore:return_value_discarded
 	Eventos.connect("actualizar_tiempo", self, "_on_actualizar_info_tiempo")
+# warning-ignore:return_value_discarded
 	Eventos.connect("cambio_energia_laser", self, "_on_actualizar_energia_laser")
+# warning-ignore:return_value_discarded
 	Eventos.connect("ocultar_energia_laser", info_laser, "ocultar")
+# warning-ignore:return_value_discarded
 	Eventos.connect("cambio_energia_escudo", self, "_on_actualizar_energia_escudo")
+# warning-ignore:return_value_discarded
 	Eventos.connect("ocultar_energia_escudo", info_escudo, "ocultar")
 	#
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 
 
@@ -50,6 +60,7 @@ func _on_actualizar_info_meteoritos(numero:int) -> void:
 
 
 func _on_actualizar_info_tiempo(tiempo_restante:int) -> void:
+# warning-ignore:narrowing_conversion
 	var minutos:int = floor(tiempo_restante * 0.01666666666666666666)
 	var segundos:int = tiempo_restante % 60
 	info_tiempo_restante.modificar_texto(

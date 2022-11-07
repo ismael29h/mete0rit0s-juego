@@ -20,13 +20,13 @@ func _unhandled_input(event:InputEvent) -> void:
 
 
 func controlar_zoom(modif_zoom:float) -> void:
-	modif_zoom
 	var zoom_x = clamp((zoom.x + modif_zoom), zoom_min, zoom_max)
 	var zoom_y = clamp((zoom.y + modif_zoom), zoom_min, zoom_max)
 	zoom_suavizado(zoom_x, zoom_y, 0.15)
 
 
 func zoom_suavizado(nuevo_zoom_x: float, nuevo_zoom_y:float, tiempo:float) -> void:
+# warning-ignore:return_value_discarded
 	tween_zoom.interpolate_property(
 		self,
 		"zoom",
@@ -36,4 +36,5 @@ func zoom_suavizado(nuevo_zoom_x: float, nuevo_zoom_y:float, tiempo:float) -> vo
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 	)
+# warning-ignore:return_value_discarded
 	tween_zoom.start()

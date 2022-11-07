@@ -8,7 +8,6 @@ func _process(delta:float) -> void:
 
 
 func _on_Area2D_body_entered(body):
-	print("Player tocó a dummy")
 	if body is Player:
 		body.destruir()
 

@@ -21,6 +21,7 @@ func set_vida_actual(vida:float) -> void:
 func controlar_barra(vida_nave:float, mostrar:bool) -> void:
 	value = vida_nave
 	if not tween_visibilidad.is_active() and modulate.a != int(mostrar):
+# warning-ignore:return_value_discarded
 		tween_visibilidad.interpolate_property(
 			self,
 			"modulate",
@@ -30,6 +31,7 @@ func controlar_barra(vida_nave:float, mostrar:bool) -> void:
 			Tween.TRANS_LINEAR,
 			Tween.EASE_IN_OUT
 		)
+# warning-ignore:return_value_discarded
 		tween_visibilidad.start()
 
 

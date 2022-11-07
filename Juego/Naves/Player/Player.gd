@@ -61,7 +61,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		escudo.activar()
 
 
-func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 		# aplicar impulso: adelante-atrás
 	apply_central_impulse(empuje.rotated(rotation))
 	# aplicar torque de rotación
@@ -70,7 +70,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	#print(rad2deg(rotation))
 	#print(empuje.rotated(rotation))
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	player_input()
 
 

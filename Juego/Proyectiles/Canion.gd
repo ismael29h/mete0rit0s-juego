@@ -23,7 +23,7 @@ func _ready() -> void:
 	# ... ajustar en el panel de importación (al lado de escena)
 	#(disparo_sfx.stream as AudioStreamOGGVorbis).set_loop(false)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if esta_disparando and esta_enfriado and puede_disparar:
 		disparar()
 

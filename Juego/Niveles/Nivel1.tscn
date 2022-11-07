@@ -9,13 +9,17 @@
 siguiente_nivel = "res://Juego/Niveles/Nivel2.tscn"
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
-position = Vector2( 1618, 571 )
+position = Vector2( -1778, 476 )
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 3 )]
-position = Vector2( 1392, -170 )
+position = Vector2( -915, -1187 )
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 2 )]
+position = Vector2( 5771, -2837 )
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 3 )]
-position = Vector2( 778, 1395 )
+position = Vector2( 1318, -1388 )
 tipo_peligro = "Enemigo"
+
+[node name="Player" parent="." index="11"]
+position = Vector2( -927, 1577 )

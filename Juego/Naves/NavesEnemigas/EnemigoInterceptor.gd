@@ -36,25 +36,24 @@ func controlar_estados_ia(nuevo_estado: int) -> void:
 		ESTADO_IA.PERSECUCION:
 			canion.set_esta_disparando(false)
 			potencia_actual = potencia_max
-		_:
-			print("Error de estado")
+		#_:
 
 	estado_ia_actual = nuevo_estado
 
 
 
 # señales
-func _on_AreaDisparo_body_entered(body:Node) -> void:
+func _on_AreaDisparo_body_entered(_body:Node) -> void:
 	controlar_estados_ia(ESTADO_IA.ATACANDOQ)
 
 
-func _on_AreaDisparo_body_exited(body:Node) -> void:
+func _on_AreaDisparo_body_exited(_body:Node) -> void:
 	controlar_estados_ia(ESTADO_IA.ATACANDOP)
 
 
-func _on_AreaDeteccion_body_entered(body:Node) -> void:
+func _on_AreaDeteccion_body_entered(_body:Node) -> void:
 	controlar_estados_ia(ESTADO_IA.ATACANDOP)
 
 
-func _on_AreaDeteccion_body_exited(body:Node) -> void:
+func _on_AreaDeteccion_body_exited(_body:Node) -> void:
 	controlar_estados_ia(ESTADO_IA.PERSECUCION)

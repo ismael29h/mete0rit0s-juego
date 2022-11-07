@@ -27,13 +27,17 @@ func _ready() -> void:
 
 
 func conectar_seniales() -> void:
+# warning-ignore:return_value_discarded
 	Eventos.connect("nivel_iniciado", self, "_on_nivel_iniciado")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
+# warning-ignore:return_value_discarded
 	Eventos.connect("minimapa_objeto_creado", self, "obtener_objetos_minimapa")
+# warning-ignore:return_value_discarded
 	Eventos.connect("minimapa_objeto_destruido", self, "quitar_icono")
 
 
-func _process(delta:float) -> void:
+func _process(_delta:float) -> void:
 	if not player:
 		return
 
@@ -46,6 +50,7 @@ func set_esta_visible(hacer_visible:bool) -> void:
 		timer_visibilidad.start()
 	
 	esta_visible = hacer_visible
+# warning-ignore:return_value_discarded
 	tween_visibilidad.interpolate_property(
 		self,
 		"modulate",
@@ -55,6 +60,7 @@ func set_esta_visible(hacer_visible:bool) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 	)
+# warning-ignore:return_value_discarded
 	tween_visibilidad.start()
 
 
@@ -66,6 +72,7 @@ func _unhandled_input(event:InputEvent) -> void:
 func quitar_icono(objeto:Node2D) -> void:
 	if objeto in items_mini_mapa:
 		items_mini_mapa[objeto].queue_free()
+# warning-ignore:return_value_discarded
 		items_mini_mapa.erase(objeto)
 
 

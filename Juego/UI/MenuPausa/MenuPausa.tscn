@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Juego/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Juego/UI/MenuPausa/MenuPausa.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 82
+font_data = ExtResource( 1 )
+
+[node name="MenuPausa" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.407843, 0.192157, 0.192157, 1 )
+
+[node name="Label" type="Label" parent="Node/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -420.0
+margin_top = -98.0
+margin_right = 420.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 1 )
+text = "PAUSADO"
+align = 1

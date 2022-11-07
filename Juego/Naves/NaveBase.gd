@@ -39,8 +39,7 @@ func controlar_estados(nuevo_estado:int) -> void:
 			Eventos.emit_signal("nave_destruida", self, global_position, numero_explosiones)
 			#canion.set_puede_disparar(false)
 			queue_free()	
-		_:
-			print('No debería verse esto')
+		#_:
 	
 	estado_actual = nuevo_estado
 
@@ -66,7 +65,6 @@ func _on_AnimationPlayer_animation_finished(anim_name:String) -> void:
 
 
 func _on_body_entered(body:Node) -> void:
-	print(body, "-", name)
 	if body is Meteorito:
 		body.destruir()
 		destruir()

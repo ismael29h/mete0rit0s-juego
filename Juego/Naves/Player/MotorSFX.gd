@@ -24,6 +24,7 @@ func apagar_motor() -> void:
 
 
 func transicion(inicio:float, final:float) -> void:
+# warning-ignore:return_value_discarded
 	tween_sonido.interpolate_property(
 		self,
 		"volume_db",
@@ -33,4 +34,5 @@ func transicion(inicio:float, final:float) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_OUT_IN
 	)
+# warning-ignore:return_value_discarded
 	tween_sonido.start()

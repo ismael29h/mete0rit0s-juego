@@ -222,6 +222,7 @@ anims/super_activada = SubResource( 1 )
 stream = ExtResource( 3 )
 
 [node name="DetectorPlayer" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorPlayer"]
 shape = SubResource( 5 )
