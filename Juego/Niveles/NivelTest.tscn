@@ -10,7 +10,7 @@
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Juego/Niveles/SectorMeteoritos.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/UI/HUD/HUD.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Juego/Niveles/Fondos/FondoBasico.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Juego/Niveles/Fondos/StarFieldBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Juego/Naves/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Juego/Naves/Estaciones/ReleMasa/ReleMasa.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Juego/Naves/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=14]
@@ -64,13 +64,13 @@ numero_peligros = 3
 
 [node name="ActualizadorTimer" type="Timer" parent="."]
 
-[node name="FondoBasico" parent="." instance=ExtResource( 11 )]
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 218, 1119 )
 
 [node name="EstacionRecarga" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1260, 705 )
+
+[node name="StarFieldBackground" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
 [connection signal="timeout" from="ActualizadorTimer" to="." method="_on_ActualizadorTimer_timeout"]
