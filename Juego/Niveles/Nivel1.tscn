@@ -17,5 +17,5 @@ position = Vector2( 1392, -170 )
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 2 )]
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 3 )]
-position = Vector2( 944, -410 )
+position = Vector2( 778, 1395 )
 tipo_peligro = "Enemigo"

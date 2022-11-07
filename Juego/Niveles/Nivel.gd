@@ -108,7 +108,7 @@ func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void
 func crear_sector_enemigos(num_enemigos:int) -> void:
 	for i in range(num_enemigos):
 		var nuevo_interceptor:EnemigoInterceptor = enemigo_interceptor.instance()
-		var spawn_pos:Vector2 = crear_posicion_aleatoria(1400.0, 1000) # (1000.0, 800.0)
+		var spawn_pos:Vector2 = crear_posicion_aleatoria(2000.0, 1600.0)#(1400.0, 1000) # (1000.0, 800.0)
 		nuevo_interceptor.global_position = player.global_position + spawn_pos
 		contenedor_enemigos.add_child(nuevo_interceptor)
 

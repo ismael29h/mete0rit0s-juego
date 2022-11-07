@@ -11,6 +11,8 @@ var potencia_actual:float = 0.0
 
 func _ready() -> void:
 	Eventos.emit_signal("minimapa_objeto_creado")
+	canion.set_esta_disparando(false)
+	potencia_actual = potencia_max
 
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
