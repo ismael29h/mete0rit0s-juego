@@ -15,6 +15,7 @@ signal actualizar_tiempo(tiempo_restante)
 signal cambio_energia_laser(energia_max, energia_actual)
 signal minimapa_objeto_creado()
 signal minimapa_objeto_destruido(objeto)
+signal nivel_completado()
 # los siguientes, experimenté problemas al tratar de ponerlos dentro de HUD.gd:
 signal ocultar_energia_laser()
 signal ocultar_energia_escudo()

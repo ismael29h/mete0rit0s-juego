@@ -14,7 +14,7 @@ var path_follow:PathFollow2D
 func _ready() -> void:
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
 	#temporal
-	canion.set_esta_disparando(true)
+	#canion.set_esta_disparando(true)
 
 
 func _process(delta:float) -> void:
@@ -39,7 +39,8 @@ func crear(pos:Vector2, padre:Node2D, ruta_duenia:Path2D) -> void:
 	
 
 
-func _on_base_destruida(base:Node2D, _pos, _explosiones) -> void:
-	._on_base_destruida(base, _pos, _explosiones)
+func _on_base_destruida(base:Node2D, _pos) -> void:
+	#._on_base_destruida(base, _pos)
 	if base == estacion_padre:
+		print("llego ...")
 		destruir()
