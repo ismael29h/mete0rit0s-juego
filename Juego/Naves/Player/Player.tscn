@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/player_physicsmaterial.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Juego/Naves/Player/Estela/PuntoEstela.tscn" type="PackedScene" id=2]
@@ -14,6 +14,23 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.0
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.423529, 0.74902, 0.227451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.00392157, 0.00392157, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.392157, 0.25098, 0.184314, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.109804, 0.0313726, 0.0313726, 1 )
+
 [node name="Player" instance=ExtResource( 4 )]
 z_index = 50
 z_as_relative = false
@@ -26,6 +43,7 @@ can_sleep = false
 linear_damp = 1.5
 angular_damp = 4.5
 script = ExtResource( 10 )
+vida = 50.0
 
 [node name="SpritePlayer" parent="." index="0"]
 rotation = 1.5708
@@ -41,6 +59,7 @@ position = Vector2( -30, -30 )
 position = Vector2( -30, 30 )
 
 [node name="Escudo" parent="." index="4" instance=ExtResource( 9 )]
+energia = 25.0
 
 [node name="PuntoEstela" parent="." index="5" instance=ExtResource( 2 )]
 z_index = -2
@@ -53,6 +72,12 @@ z_index = -2
 
 [node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 5 )]
 z_index = -1
+danio_laser = 0.4
+energia = 5.0
+
+[node name="BarraSalud" parent="." index="10"]
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -24,6 +24,9 @@ func _ready() -> void:
 	icono_player.position = zona_renderizado.rect_size * 0.5
 	escala_grilla = zona_renderizado.rect_size / (get_viewport_rect().size * escala_zoom)
 	conectar_seniales()
+	timer_visibilidad.wait_time = tiempo_visible
+	set_esta_visible(true)
+	
 
 
 func conectar_seniales() -> void:

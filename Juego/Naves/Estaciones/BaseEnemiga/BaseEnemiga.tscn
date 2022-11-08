@@ -79,7 +79,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.745098, 0.8, 0.890196, 1 )
+bg_color = Color( 0.792157, 0.360784, 0.211765, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -88,7 +88,7 @@ border_color = Color( 0.0392157, 0.00392157, 0.00392157, 1 )
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.945098, 0.384314, 0.133333, 1 )
+bg_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -99,6 +99,7 @@ border_color = Color( 0.109804, 0.0313726, 0.0313726, 1 )
 z_index = 45
 z_as_relative = false
 script = ExtResource( 5 )
+vida = 50.0
 orbital = ExtResource( 7 )
 
 [node name="Sprites" type="Node2D" parent="."]
@@ -172,9 +173,9 @@ script = ExtResource( 9 )
 
 [node name="BarraSalud" parent="." instance=ExtResource( 10 )]
 margin_left = -107.0
-margin_top = -287.0
+margin_top = -288.0
 margin_right = 107.0
-margin_bottom = -260.0
+margin_bottom = -261.0
 rect_rotation = 0.0
 custom_styles/fg = SubResource( 11 )
 custom_styles/bg = SubResource( 12 )

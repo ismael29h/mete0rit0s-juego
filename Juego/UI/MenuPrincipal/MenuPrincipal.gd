@@ -1,3 +1,4 @@
+class_name MenuPrincipal
 extends Node2D
 
 
