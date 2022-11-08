@@ -1,5 +1,6 @@
 # Meteoritos
 > Proyecto de Pixel Lab, juego tipo shmup 2D para PC
+> Idea y guía: Omar Bazzi
 
 + Engine: Godot v3.4.4
 
