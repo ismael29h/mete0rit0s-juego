@@ -9,3 +9,5 @@
 + Plataforma: PC
 
 + Género: Shmup
+
+NOTA: ME COPIARON EL TRABAJO
