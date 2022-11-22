@@ -10,4 +10,4 @@
 
 + Género: Shmup
 
-NOTA: ME COPIARON EL TRABAJO
+
